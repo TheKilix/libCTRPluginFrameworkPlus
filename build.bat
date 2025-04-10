@@ -6,7 +6,6 @@ cls
 echo v1.0.0    
 echo            #############################
 echo            # libCTRPluginFrameworkPlus #
-echo            #         By Kilix          #
 echo            #############################
 echo.
 echo [files:]
