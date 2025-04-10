@@ -17,9 +17,11 @@ DEFINES := -D__3DS__ \
 	-DCOMMIT_HASH=\"unknown\" \
 	-DCOMPILE_DATE=\"$(shell date +%Y-%m-%d)\"
 
-
-CFLAGS_BASE := -Wall -Wno-psabi -mword-relocations -ffunction-sections -fdata-sections \
-	-Wno-array-bounds -Wno-stringop-overflow -Wno-stringop-overread $(ARCH) $(DEFINES)
+CFLAGS_BASE := \
+	-Wno-psabi -mword-relocations -ffunction-sections -fdata-sections \
+	-Wno-array-bounds -Wno-stringop-overflow -Wno-stringop-overread \
+	-Wno-reorder -Wno-unused-variable -Wno-unused-but-set-variable \
+	$(ARCH) $(DEFINES)
 
 ifeq ($(BUILD),debug)
 	CFLAGS := $(CFLAGS_BASE) -DDEBUG=1 -g
@@ -37,7 +39,6 @@ LIBDIRS := $(CTRULIB) $(CURDIR)/libcwav $(CURDIR)/libcwav/libncsnd $(CURDIR)/lib
 LDFLAGS := $(foreach dir,$(LIBDIRS),-L$(dir)) $(LIBS)
 
 CPPFILES := $(shell find source -type f -name "*.cpp")
-
 OFILES := $(patsubst source/%.cpp,$(OUTDIR)/%.o,$(CPPFILES))
 DEPENDS := $(OFILES:.o=.d)
 
@@ -48,16 +49,17 @@ INCLUDE := $(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir)) \
 .PHONY: all clean rebuild
 
 all: libCTRPluginFrameworkPlus/libCTRPF+.a
+	@echo  libCTRPF+.a Ready !!!
 
 rebuild: clean all
 
 libCTRPluginFrameworkPlus/libCTRPF+.a: $(OFILES) | libCTRPluginFrameworkPlus
-	$(AR) rcs $@ $^
+	@$(AR) rcs $@ $^
 
 $(OUTDIR)/%.o: source/%.cpp
-	@echo [C++] $<
+	@echo - $(notdir $<)
 	@mkdir -p $(dir $@)
-	$(CXX) $(CXXFLAGS) $(INCLUDE) -MMD -MP -c $< -o $@
+	@$(CXX) $(CXXFLAGS) $(INCLUDE) -MMD -MP -c $< -o $@
 
 $(OUTDIR):
 	mkdir -p $@
@@ -70,4 +72,5 @@ clean:
 	@rm -rf release debug libCTRPluginFrameworkPlus
 
 -include $(DEPENDS)
+
 

@@ -1,6 +1,7 @@
 #pragma once
 
 #define CURL_DISABLE_TYPECHECK
+
 #include <CTRPluginFramework.hpp>
 #include "CTRPluginFrameworkPlus/curl/curl.h"
 #include "CTRPluginFrameworkPlus.hpp"

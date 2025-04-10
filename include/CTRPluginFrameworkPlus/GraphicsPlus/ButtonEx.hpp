@@ -7,6 +7,7 @@
 namespace CTRPluginFramework {
 class ButtonEx {
  public:
+
   ButtonEx(const Screen &scr, const std::string &str, u32 posX, u32 posY, u32 padding = 10, const Color &foreground = Color::White, const Color &background = Color::Black, const Color &pressed = Color(10, 10, 10), u8 fontAlign = 8, u8 origin = 8);
 
   void Draw(void) const;
