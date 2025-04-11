@@ -34,7 +34,7 @@ void Blacklist::CheckBan()
     if (IsBanned(FC))
     {
         Sleep(Milliseconds(100));
-        MessageBox(Color(0x0000FF) << "Access Denied !")();
+        MessageBox("Access Denied!")();
         Process::ReturnToHomeMenu();
         svcExitThread();
         srvExit();
