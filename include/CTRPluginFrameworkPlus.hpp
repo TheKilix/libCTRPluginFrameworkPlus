@@ -26,6 +26,7 @@
 #include "CTRPluginFrameworkPlus/UtilsPlus/Curl.hpp"
 #include "CTRPluginFrameworkPlus/UtilsPlus/KaniCodes.hpp"
 #include "CTRPluginFrameworkPlus/UtilsPlus/Security.hpp"
+#include "CTRPluginFrameworkPlus/UtilsPlus/Socket.hpp"
 
 // curl
 #include "CTRPluginFrameworkPlus/curl/curl.h"
