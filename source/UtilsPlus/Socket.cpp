@@ -99,6 +99,5 @@ namespace CTRPluginFramework {
         }
     
         res = socInit((u32 *)SHAREDMEM_ADDR, SERVICE_SHAREDMEM_SIZE);
-        DEBUG_NOTIFY(Utils::Format("socInit: %08lX", res));        
     }
 }
