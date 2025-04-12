@@ -26,8 +26,6 @@ namespace CTRPluginFramework
         Result acceptConnection(struct sockaddr *addr, socklen_t *addrlen);
         int closeSocket();
         int getNewAccept() const;
-        int Initialize();
-
     private:
         int _socket;
         int _newAccept;

@@ -87,17 +87,4 @@ namespace CTRPluginFramework {
     int Socket::getNewAccept() const {
         return _newAccept;
     }
-
-    int Socket::Initialize() {
-        u32 temp;
-        Result res;
-    
-        if(R_FAILED(res = svcControlMemoryUnsafe((u32 *)&temp, SHAREDMEM_ADDR, SERVICE_SHAREDMEM_SIZE * SERVICE_COUNT, MemOp(MEMOP_REGION_SYSTEM | MEMOP_ALLOC), MemPerm(MEMPERM_READ | MEMPERM_WRITE))))
-        {
-        throw std::runtime_error("Failed to allocate memory.");
-        abort();
-        }
-    
-        res = socInit((u32 *)SHAREDMEM_ADDR, SERVICE_SHAREDMEM_SIZE);
-    }
 }
