@@ -25,7 +25,7 @@
 #include "CTRPluginFrameworkPlus/UtilsPlus/Convert.hpp"
 #include "CTRPluginFrameworkPlus/UtilsPlus/Curl.hpp"
 #include "CTRPluginFrameworkPlus/UtilsPlus/KaniCodes.hpp"
-#include "CTRPluginFrameworkPlus/UtilsPlus/Blacklist.hpp"
+#include "CTRPluginFrameworkPlus/UtilsPlus/Security.hpp"
 
 // curl
 #include "CTRPluginFrameworkPlus/curl/curl.h"

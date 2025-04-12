@@ -3,11 +3,11 @@
 #include <string>
 #include <vector>
 
-class Blacklist
+class Security
 {
 public:
 	// Add FC to the blacklist
-    static void Add(const std::string& friendCode);
+    static void AddToBlacklist(const std::string& friendCode);
 
 	// Check if the FC is in the blacklist
     static bool IsBanned(const std::string& friendCode);
@@ -16,7 +16,10 @@ public:
     static void CheckBan();
 
 	// Display the banned list
-	static void DisplayBannedList();
+	static void DisplayBlacklist();
+
+	// Logs user info
+	static void LogUserInfo();
 
 
 private:
